@@ -33,5 +33,13 @@
   <%= @book.tags.map(&:name).join(', ') %>
 </p>
 
+<p>
+  <strong>Product Image:</strong>
+  <% if @book.picture.exists? %>
+    <%= image_tag(@book.picture, width:300) %>
+  <% else %>
+    <%= 'No Image' %>
+  <% end %>
+</p>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
