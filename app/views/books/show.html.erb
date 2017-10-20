@@ -1,5 +1,8 @@
-<p id="notice"><%= notice %></p>
-
+<% if notice.present? %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
 <p>
   <strong>Title:</strong>
   <%= @book.title %>
@@ -23,6 +26,11 @@
 <p>
   <strong>Price:</strong>
   <%= @book.price %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @book.tags.map(&:name).join(', ') %>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |

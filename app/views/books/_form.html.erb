@@ -1,51 +1,50 @@
 <%= form_with(model: book, local: true) do |form| %>
   <% if book.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
-
-      <ul>
-      <% book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+    <div class="card border-danger">
+      <div class="card-header bg-danger text-white" id="error_explanation">
+        <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+      </div>
+      <div class="card-body">
+        <ul class="mb-0">
+          <% book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>  
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :book_title %>
+    <%= form.text_field :title, id: :book_title, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :author %>
-    <%= form.text_field :author, id: :book_author %>
+    <%= form.text_field :author, id: :book_author, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :published_on %>
-    <%= form.date_select :published_on, id: :book_published_on %>
+    <%= form.date_select :published_on, id: :book_published_on, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :showing %>
-    <%= form.check_box :showing, id: :book_showing %>
+    <%= form.check_box :showing, id: :book_showing, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :price %>
-    <%= form.number_field :price, id: :boosk_price %>
+    <%= form.number_field :price, id: :boosk_price, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <% tags.each.with_index do |tag, i| %>
-    <%= check_box_tag 'book[tag_ids][]', tag.id ,false,id: "book_tag_ids_#{i}" %>
-    <label for="book_tag_ids_<%= i %>">
-      <%= tag.name %>
-    </label>
-    <% end %>
+  <div class="form-group">
+    <%= collection_check_boxes :book, :tag_ids, Tag.all, :id, :name, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary'%>
   </div>
+
 <% end %>
