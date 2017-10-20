@@ -33,7 +33,16 @@
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price, id: :book_price %>
+    <%= form.number_field :price, id: :boosk_price %>
+  </div>
+
+  <div class="field">
+    <% tags.each.with_index do |tag, i| %>
+    <%= check_box_tag 'book[tag_ids][]', tag.id ,false,id: "book_tag_ids_#{i}" %>
+    <label for="book_tag_ids_<%= i %>">
+      <%= tag.name %>
+    </label>
+    <% end %>
   </div>
 
   <div class="actions">
