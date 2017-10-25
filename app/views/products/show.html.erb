@@ -41,4 +41,6 @@
     <%= 'No Image' %>
   <% end %>
 </p>
-<%= link_to 'Back' %>
+<%= link_to 'Order', new_order_path(book_id: @book), class: "btn btn-primary" %>
+<br><br>
+<%= link_to 'Back', products_path %>
