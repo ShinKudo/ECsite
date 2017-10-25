@@ -9,4 +9,5 @@ ja:
         published_on: 出版日
         showing: 商品表示
         price: 価格
-      
+        tags: タグ
+        product_image: 商品画像
