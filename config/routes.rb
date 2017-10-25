@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'products/index'
-
-  get 'products/show'
-
-  resources :orders
-  get 'product/new'
-
   devise_for :users
   resources :tags,except: :show
   resources :books
