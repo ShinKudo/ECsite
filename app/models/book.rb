@@ -6,4 +6,7 @@ class Book < ApplicationRecord
   has_attached_file :picture  #1
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/  #2
 
+  has_many :orders
+  has_many :users, through: :orders
+
 end
