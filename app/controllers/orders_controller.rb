@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
   # POST /tags.json
   def create
     @order = current_user.orders.new(order_params)
-    @order.delivery = Delivery.new(status: 0)
+    @order.build_delivery(status: :received)
     @book = @order.book
     respond_to do |format|
       if @order.save
