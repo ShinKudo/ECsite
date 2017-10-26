@@ -10,6 +10,7 @@
 
   <body>
     <nav class="navbar navbar-dark bg-dark">
+      <%= image_tag 'logo.png', :size => '50x50' %>
       <h1 class="navbar-brand mb-0">Book Store</h1>
       <%= link_to 'logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-warning'%>
       
