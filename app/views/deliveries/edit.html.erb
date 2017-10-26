@@ -1,0 +1,31 @@
+<h1>Editing Delivery</h1>
+
+<p>
+  <strong>Title:</strong>
+  <%= @delivery.order.book.title %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @delivery.order.book.price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @delivery.order.quantity %>
+</p>
+
+<p>
+  <strong>E-mail:</strong>
+  <%= @delivery.order.user.email %>
+</p>
+
+<p>
+  <strong>Addless:</strong>
+  <%= @delivery.order.address %>
+</p>
+
+<%= render 'form', delivery: @delivery %>
+<br>
+<%= link_to 'Show', @delivery %> |
+<%= link_to 'Back', deliveries_path %>
