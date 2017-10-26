@@ -1,0 +1,40 @@
+<h1>Delivery Details</h1>
+<% if notice.present? %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+<p>
+  <strong>Title:</strong>
+  <%= @delivery.order.book.title %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @delivery.order.book.price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @delivery.order.quantity %>
+</p>
+
+<p>
+  <strong>E-mail:</strong>
+  <%= @delivery.order.user.email %>
+</p>
+
+<p>
+  <strong>Addless:</strong>
+  <%= @delivery.order.address %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @delivery.status %>
+  
+</p>
+
+<%= link_to 'Edit', edit_delivery_path(id: @delivery), class: "btn btn-primary" %>
+<br><br>
+<%= link_to 'Back', deliveries_path %>

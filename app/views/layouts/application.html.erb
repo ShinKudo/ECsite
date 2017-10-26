@@ -10,10 +10,20 @@
 
   <body>
     <nav class="navbar navbar-dark bg-dark">
-      <%= image_tag 'logo.png', :size => '50x50' %>
-      <h1 class="navbar-brand mb-0">Book Store</h1>
-      <%= link_to 'logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-warning'%>
-      
+      <ul class="nav navbar-nav navbar-left">
+        <%= link_to 'products_path' do %>
+          <span>
+            <%= image_tag 'logo.png', :size => '50x50' %>
+            <h1 class="navbar-brand mb-0"> Book Store</h1>
+          </span>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <span>
+        <%= link_to 'admin', deliveries_path, class: 'btn btn-outline-secondary'%>
+        <%= link_to 'logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-warning'%>
+        </span>
+      </ul>
     </nav>
     <br>
     <div class="container">
