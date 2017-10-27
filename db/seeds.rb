@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 100.times do |i|
   Book.create(title: 'title#{i}', author: 'author#{i}', published_on: (Date.now - Random.rand(1 .. 4000)), showint: true, price: Random.rand(500 .. 10000).round(-1))
+end
