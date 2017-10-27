@@ -2,7 +2,8 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @books = Book.all
+    @q = Book.ransack params[:q]
+    @products = @q.result
   end
  
   def show
