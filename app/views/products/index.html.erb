@@ -35,10 +35,10 @@
   <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Author</th>
-        <th scope="col">Published on</th>
-        <th scope="col">Price</th>
+        <th scope="col"><%=sort_link(@q, :title, 'title')%></th>
+        <th scope="col"><%=sort_link(@q, :author, 'Author')%></th>
+        <th scope="col"><%=sort_link(@q, :published_on, 'Published on')%></th>
+        <th scope="col"><%=sort_link(@q, :price, 'Price')%></th>
         <th scope="col"></th>
       </tr>
     </thead>
