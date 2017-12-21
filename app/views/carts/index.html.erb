@@ -1,25 +1,27 @@
 <h1>Your Cart</h1>
-
-
-<% @products.each do |product| %>
-
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h2><%= product.title %></h2>
+<% if @products.blank? %>
+  <h3>Nothing in your cart.</h3>
+<% else %>
+  <%= link_to '注文する', products_path , class: "btn btn-warning" %>
+  <br>
+  <% @products.each do |product| %>
+  
+    <div class="card" style="width: 20rem;">
+      <div class="card-body">
+        <h3 class="card-title"><%= product.title %></h3>
+        <p class="card-text">
+          <strong>Author:</strong>
+          <%= product.author %>
+        </p>
+        <p class="card-text">
+          <strong>Published on:</strong>
+          <%= product.published_on %>
+        </p>
+        <p class="card-text">
+          <strong>Price:</strong>
+          <%= product.price %>
+        </p>
+      </div>
     </div>
-    <div class="panel-body">
-    <p>
-      <strong>Author:</strong>
-      <%= product.author %>
-    </p>
-    <p>
-      <strong>Published on:</strong>
-      <%= product.published_on %>
-    </p>
-    <p>
-      <strong>Price:</strong>
-      <%= product.price %>
-    </p>
-    </div>
-  </div>
-<%end%>
+  <% end %>
+<% end %>

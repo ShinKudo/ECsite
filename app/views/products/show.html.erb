@@ -43,6 +43,7 @@
     <%= 'No Image' %>
   <% end %>
 </p>
+<%= render 'order_details/form', book: @book, order_detail: @order%>
 <%= link_to 'Order', new_order_path(book_id: @book), class: "btn btn-primary" %>
 <%= link_to 'Add to Cart', add_to_cart_product_path(book_id: @book), method: :post, class: "btn btn-warning" %>
 <br><br>

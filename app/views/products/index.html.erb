@@ -3,29 +3,59 @@
     <%= notice %>
   </div>
 <% end %>
+
+<h2>Search</h2>
+<%= search_form_for @q, url: request.path do |f| %>
+  <table>
+    <tr>
+      <th>Title</th>
+      <td><%= f.text_field :title_cont %></td>
+    </tr>
+    <tr>
+      <th>Author</th>
+      <td><%= f.text_field :author_cont %></td>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <td>
+        <%= f.date_select :created_at_gteq, include_blank: true %>〜<%= f.date_select :created_at_lteq, include_blank: true %>
+      </td>
+    </tr>
+    <tr>
+      <th>price</th>
+      <td><%= f.number_field :price_gteq %>〜<%= f.number_field :price_lteq %></td>
+    </tr>
+  </table>
+  <%= f.submit %>
+<% end %>
+<br>
 <div class="center-block">
   <h1>Products</h1>
   <br>
   <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Author</th>
-        <th scope="col">Published on</th>
-        <th scope="col">Price</th>
+        <th scope="col"><%=sort_link(@q, :title, 'title')%></th>
+        <th scope="col"><%=sort_link(@q, :author, 'Author')%></th>
+        <th scope="col"><%=sort_link(@q, :published_on, 'Published on')%></th>
+        <th scope="col"><%=sort_link(@q, :price, 'Price')%></th>
         <th scope="col"></th>
       </tr>
     </thead>
   
     <tbody>
-      <% @books.each do |book| %>
+      <% if @products.blank? %>
+        <td>Nothing to display</td>
+      <% else %>
+      <% @products.each do |product| %>
         <tr>
-          <td><%= book.title %></td>
-          <td><%= book.author %></td>
-          <td><%= book.published_on %></td>
-          <td><%= book.price %></td>
-          <td><%= link_to 'Show', product_path(book) %></td>
+          <td><%= product.title %></td>
+          <td><%= product.author %></td>
+          <td><%= product.published_on %></td>
+          <td><%= product.price %></td>
+          <td><%= link_to 'Show', product_path(product) %></td>
         </tr>
+      <% end %>
       <% end %>
     </tbody>
   </table>
